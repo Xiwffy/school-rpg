@@ -2,7 +2,9 @@ from PyQt5.QtWidgets import QApplication, QWidget, QHBoxLayout, QVBoxLayout, QPu
 from PyQt5.QtCore import Qt
 from PIL import Image
 from PyQt5.QtGui import QPixmap
+from PyQt5.QtGui import QFont
 
+name = ''
 
 def vstrecha():
     print(start_bottom.text())
@@ -13,9 +15,11 @@ def vstrecha():
         loadImage()
         
         start_bottom.setText('Начнём!')
+        safeandsound.show()
     elif start_bottom.text() == 'Начнём!':
-        purame.show
-        w, h = 100, 100
+        dude.hide()
+        # pers.show()
+        # purame.show
         loadImage()
 
 
@@ -30,6 +34,17 @@ def loadImage():
     dude.show()
     name_puro.show()
     
+def save_name():
+    global name
+    name = name_puro.text()
+    print(name)
+def perfect():
+    boxs.setLayout(box_line)
+    boxs.show()          
+
+
+
+
 
 
 
@@ -37,14 +52,19 @@ def loadImage():
 app = QApplication([])
 win = QWidget()
 
+boxs = QGroupBox('')
+label = QLabel('Имя сохранено!')
 
 name_start = QLabel('ДОБРО ПОЖАЛОВАТЬ НА ВАШУ ШКОЛЬНУЮ РПГ!')
 dude = QLabel('Это твой дружище\nПри помощи твоих знаний ты усилишь его\nНапример: Сделал домашку по матиматике - +5 баллов к уму\nНаписал контрольную работу на 5 - +40 к ХП и тд\n\nТы можешь его назвать:')
+# purame = QLabel(str(name_puro))
+pers = QLabel('Теперь его зовут\n\nВсё разъяснили\nПора приступать!')
 
 name_puro = QLineEdit()
+
 start_bottom = QPushButton('START!')
-purame = QLabel(str(name_puro))
-pers = QLabel('Теперь его зовут',name_puro,'\n\nВсё разъяснили\nПора приступать!')
+safeandsound = QPushButton('Сохранить')
+
 name_start.setAlignment(Qt.AlignCenter)
 name_puro.setAlignment(Qt.AlignBottom)
 
@@ -54,9 +74,11 @@ V2_Line = QVBoxLayout()
 H_Line = QHBoxLayout()
 H2_Line = QHBoxLayout()
 
-V2_Line.addWidget(purame)
+# V2_Line.addWidget(purame)
+box_line.addWidget(label)
 V2_Line.addWidget(dude)
 V2_Line.addWidget(name_puro)
+V2_Line.addWidget(safeandsound)
 V2_Line.addWidget(name_start)
 V2_Line.addWidget(start_bottom)
 H_Line.addLayout(V_Line)
@@ -65,12 +87,21 @@ H_Line.addLayout(V2_Line)
 win.setLayout(H_Line)
 win.setLayout(box_line)
 
-
 start_bottom.clicked.connect(vstrecha)
+safeandsound.clicked.connect(save_name)
+safeandsound.clicked.connect(perfect)
 
 #start.setLayout(H_Line)
 
 
+# dawn = name_puro.text()
+
+# print(dawn)
+
+font = QFont('Arial', 12)
+dude.setFont(font)
+name_start.setFont(font)
+label.setFont(font)
 
 
 
@@ -82,17 +113,11 @@ start_bottom.clicked.connect(vstrecha)
 
 
 
-
-
-
-
-
-
-
-
-purame.hide()
+safeandsound.hide()
+name_puro.hide()
+# purame.hide()
 dude.hide()
-start_bottom.resize(10,10)
+# start_bottom.resize(10,10)
 win.resize(900, 600)
 win.setWindowTitle('...---...')
 win.show()
