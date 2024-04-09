@@ -14,13 +14,16 @@ def vstrecha():
     elif start_bottom.text() == 'Дальше»':
         loadImage()
         
-        start_bottom.setText('Начнём!')
         safeandsound.show()
+        start_bottom.setText('Начнём!')
     elif start_bottom.text() == 'Начнём!':
+        safeandsound.hide()
+        name_puro.hide()
+        boxs.hide()
         dude.hide()
-        # pers.show()
+        pers.show()
         # purame.show
-        loadImage()
+        
 
 
 
@@ -47,8 +50,6 @@ def perfect():
 
 
 
-
-
 app = QApplication([])
 win = QWidget()
 
@@ -58,7 +59,7 @@ label = QLabel('Имя сохранено!')
 name_start = QLabel('ДОБРО ПОЖАЛОВАТЬ НА ВАШУ ШКОЛЬНУЮ РПГ!')
 dude = QLabel('Это твой дружище\nПри помощи твоих знаний ты усилишь его\nНапример: Сделал домашку по матиматике - +5 баллов к уму\nНаписал контрольную работу на 5 - +40 к ХП и тд\n\nТы можешь его назвать:')
 # purame = QLabel(str(name_puro))
-pers = QLabel('Теперь его зовут\n\nВсё разъяснили\nПора приступать!')
+pers = QLabel(name)
 
 name_puro = QLineEdit()
 
@@ -76,6 +77,7 @@ H2_Line = QHBoxLayout()
 
 # V2_Line.addWidget(purame)
 box_line.addWidget(label)
+V2_Line.addWidget(pers)
 V2_Line.addWidget(dude)
 V2_Line.addWidget(name_puro)
 V2_Line.addWidget(safeandsound)
@@ -112,7 +114,7 @@ label.setFont(font)
 
 
 
-
+pers.hide()
 safeandsound.hide()
 name_puro.hide()
 # purame.hide()
