@@ -4,7 +4,8 @@ from PIL import Image
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtGui import QFont
 
-name = ''
+
+name = 'h'
 
 def vstrecha():
     print(start_bottom.text())
@@ -21,7 +22,11 @@ def vstrecha():
         name_puro.hide()
         boxs.hide()
         dude.hide()
+        # name_start.hide()
+        pers.setText(name)
         pers.show()
+        pers2.show()
+        pers3.show()
         # purame.show
         
 
@@ -40,11 +45,11 @@ def loadImage():
 def save_name():
     global name
     name = name_puro.text()
+    
     print(name)
 def perfect():
     boxs.setLayout(box_line)
     boxs.show()          
-
 
 
 
@@ -56,18 +61,21 @@ win = QWidget()
 boxs = QGroupBox('')
 label = QLabel('Имя сохранено!')
 
+
 name_start = QLabel('ДОБРО ПОЖАЛОВАТЬ НА ВАШУ ШКОЛЬНУЮ РПГ!')
 dude = QLabel('Это твой дружище\nПри помощи твоих знаний ты усилишь его\nНапример: Сделал домашку по матиматике - +5 баллов к уму\nНаписал контрольную работу на 5 - +40 к ХП и тд\n\nТы можешь его назвать:')
 # purame = QLabel(str(name_puro))
 pers = QLabel(name)
+pers2 = QLabel('Теперь его зовут:')
+pers3 = QLabel('Давай начнём это!')
 
 name_puro = QLineEdit()
 
 start_bottom = QPushButton('START!')
 safeandsound = QPushButton('Сохранить')
 
-name_start.setAlignment(Qt.AlignCenter)
-name_puro.setAlignment(Qt.AlignBottom)
+
+
 
 box_line = QVBoxLayout()
 V_Line = QVBoxLayout()
@@ -77,9 +85,11 @@ H2_Line = QHBoxLayout()
 
 # V2_Line.addWidget(purame)
 box_line.addWidget(label)
-V2_Line.addWidget(pers)
+V2_Line.addWidget(pers2, alignment=Qt.AlignBottom)
+V2_Line.addWidget(pers, alignment=Qt.AlignBottom)
+V2_Line.addWidget(pers3, alignment=Qt.AlignBottom)
 V2_Line.addWidget(dude)
-V2_Line.addWidget(name_puro)
+V2_Line.addWidget(name_puro, alignment=Qt.AlignBottom)
 V2_Line.addWidget(safeandsound)
 V2_Line.addWidget(name_start)
 V2_Line.addWidget(start_bottom)
@@ -93,18 +103,22 @@ start_bottom.clicked.connect(vstrecha)
 safeandsound.clicked.connect(save_name)
 safeandsound.clicked.connect(perfect)
 
-#start.setLayout(H_Line)
+name_start.setAlignment(Qt.AlignCenter)
+name_puro.setAlignment(Qt.AlignBottom)
+pers.setAlignment(Qt.AlignBottom)
+pers2.setAlignment(Qt.AlignBottom)
+pers3.setAlignment(Qt.AlignBottom)
 
-
-# dawn = name_puro.text()
-
-# print(dawn)
 
 font = QFont('Arial', 12)
+font_4name = QFont('Verdana', 20)
+# font.configure(weight = 'bold')
 dude.setFont(font)
 name_start.setFont(font)
 label.setFont(font)
-
+pers.setFont(font_4name)
+pers2.setFont(font)
+pers3.setFont(font)
 
 
 
@@ -115,11 +129,13 @@ label.setFont(font)
 
 
 pers.hide()
+pers2.hide()
+pers3.hide()
+
 safeandsound.hide()
 name_puro.hide()
-# purame.hide()
+
 dude.hide()
-# start_bottom.resize(10,10)
 win.resize(900, 600)
 win.setWindowTitle('...---...')
 win.show()
