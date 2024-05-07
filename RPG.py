@@ -119,7 +119,9 @@ def score():
 
         final += 45
     now.setText(f"За домашку вы получили: {final} очков!!!")
-        
+    infourok.setText(f'Ваша статистика:\nУровень: {lvl}\n\nЗдоровье: {hp}\nЗащита: {sheld}\nРазум: {brain}\nКрасноречие: {talking}\nОбществознание: {world_edu}\nЗельеварение: {poison}\n\n\nВсего очков: {final}')
+    final = 0
+
 def good_job():
     global lvl
     russian.hide()
@@ -142,16 +144,22 @@ def good_job():
         lvl += 1
         show_lvl.setText(f"Ваш уровень: {lvl}")
     
+    back.show()
+    now.show()
+    show_lvl.show()
     V2_Line.addWidget(back)
     V_Line.addWidget(now)
     V_Line.addWidget(show_lvl)
     now.setAlignment(Qt.AlignCenter)
+    infourok.setText(f'Ваша статистика:\nУровень: {lvl}\n\nЗдоровье: {hp}\nЗащита: {sheld}\nРазум: {brain}\nКрасноречие: {talking}\nОбществознание: {world_edu}\nЗельеварение: {poison}\n\n\nВсего очков: {final}')
 
 def sexyback():
     back.hide()
     now.hide()
     show_lvl.hide()
+
     show_main()
+    loadImage2()
     
 
 def show_main():
@@ -178,13 +186,47 @@ def loadImage2():
     pixmapimage = pixmapimage.scaled(w, h)
     name_start.setPixmap(pixmapimage)
     #name_start.setAlignment(Qt.AlignRight)
-    #name_start.setAlignment(Qt.AlignTop)        
+    #name_start.setAlignment(Qt.AlignTop)    
+    
+def loadImage_read():
+    pixmapimage = QPixmap('puro read.png')
+    w, h = 100, 100
+    pixmapimage = pixmapimage.scaled(w, h)
+    name_start.setPixmap(pixmapimage)
 
 def homeworking():
+    russian.setChecked(False)
+    literatur.setChecked(False)
+    manth.setChecked(False)
+    geo.setChecked(False)
+    chemist.setChecked(False)
+    bio.setChecked(False)
+    history.setChecked(False)
+    piple.setChecked(False)
+    phisics.setChecked(False)
+    informatik.setChecked(False)
+    eng.setChecked(False)
+    obg.setChecked(False)
+    
     razvilka.hide()
     homework.hide()
     works.hide()
     info.hide()
+
+    russian.show()
+    literatur.show()
+    manth.show()
+    geo.show()
+    chemist.show()
+    bio.show()
+    history.show()
+    piple.show()
+    phisics.show() 
+    informatik.show() 
+    eng.show() 
+    obg.show()
+    next.show()
+
 
     V_Line.addWidget(russian)
     V2_Line.addWidget(literatur)
@@ -1357,8 +1399,11 @@ def score_mark():
 
 def deanon():
     hide_main()
+    infourok.show()
+    wasd.show()
     H2_Line.addWidget(infourok)
     V2_Line.addWidget(wasd)
+    loadImage_read()
     
         
 
