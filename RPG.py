@@ -20,7 +20,7 @@ lvl = 0
 name = 'start name'
 
 def vstrecha():
-    print(start_bottom.text())
+    # print(start_bottom.text())
     if start_bottom.text() == 'START!':
         name_start.setText('Приветсвую тебя в твоей игре! \nКак ты знаешь в школе часто бывает скучно и хотелось бы немного веселья и разнообразия\nРешение этого данная "игра" которая поднимет твою мотивацию!')
         start_bottom.setText('Дальше»')
@@ -167,7 +167,10 @@ def hide_main():
     works.hide()
     info.hide()
 
-
+def popa():
+    show_main()
+    wasd.hide()
+    infourok.hide()
 
 def loadImage2():
     pixmapimage = QPixmap('puro.png')
@@ -1372,7 +1375,8 @@ def save_name():
     global name
     name = name_puro.text()
     
-    print(name)
+    # print(name)
+
 def perfect():
     boxs.setLayout(box_line)
     boxs.show()          
@@ -1504,7 +1508,7 @@ works.clicked.connect(work)
 bottom_final.clicked.connect(score_mark)
 kys.clicked.connect(kys_back)
 info.clicked.connect(deanon)
-
+wasd.clicked.connect(popa)
 
 klass_work.clicked.connect(choose)
 sam_work.clicked.connect(choose)
