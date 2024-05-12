@@ -3,7 +3,7 @@ from PyQt5.QtCore import Qt
 from PIL import Image
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtGui import QFont
-
+from time import *
 global hp, sheld, brain, talking, poison, world_edu, final
 
 hp = 0
@@ -15,7 +15,7 @@ world_edu = 0
 
 final = 0
 lvl = 0
-
+animka = True
 
 name = 'start name'
 
@@ -143,6 +143,15 @@ def good_job():
     if final >= 405:
         lvl += 1
         show_lvl.setText(f"Ваш уровень: {lvl}")
+    if final >= 405 * 2:
+        lvl += 1
+        show_lvl.setText(f"Ваш уровень: {lvl}")
+    if final >= 405 * 4:
+        lvl += 1
+        show_lvl.setText(f"Ваш уровень: {lvl}")
+    if final >= 405 * 8:
+        lvl += 1
+        show_lvl.setText(f"Ваш уровень: {lvl}")
     
     back.show()
     now.show()
@@ -163,10 +172,13 @@ def sexyback():
     
 
 def show_main():
+    global animka
     razvilka.show()
     homework.show()
     works.show()
     info.show()
+    loadImage2()
+    animka = False
 
 
 def hide_main():
@@ -193,6 +205,81 @@ def loadImage_read():
     w, h = 100, 100
     pixmapimage = pixmapimage.scaled(w, h)
     name_start.setPixmap(pixmapimage)
+
+def loadImage_hape():
+    pixmapimage = QPixmap('hape puro.png')
+    w, h = 100, 100
+    pixmapimage = pixmapimage.scaled(w, h)
+    name_start.setPixmap(pixmapimage)
+
+def loadImage_well():
+    pixmapimage = QPixmap('well puro.png')
+    w, h = 100, 100
+    pixmapimage = pixmapimage.scaled(w, h)
+    name_start.setPixmap(pixmapimage)
+
+def loadImage_gret():
+    pixmapimage = QPixmap('great puro.png')
+    w, h = 100, 100
+    pixmapimage = pixmapimage.scaled(w, h)
+    name_start.setPixmap(pixmapimage)
+
+def loadImage_bad():
+    pixmapimage = QPixmap('sad puro.png')
+    w, h = 100, 100
+    pixmapimage = pixmapimage.scaled(w, h)
+    name_start.setPixmap(pixmapimage)
+
+def frame1():
+    pixmapimage = QPixmap('eppy 1.png')
+    w, h = 100, 100
+    pixmapimage = pixmapimage.scaled(w, h)
+    name_start.setPixmap(pixmapimage)
+
+def frame2():
+    pixmapimage = QPixmap('eppy 2.png')
+    w, h = 100, 100
+    pixmapimage = pixmapimage.scaled(w, h)
+    name_start.setPixmap(pixmapimage)
+
+def frame3():
+    pixmapimage = QPixmap('eppy 3.png')
+    w, h = 100, 100
+    pixmapimage = pixmapimage.scaled(w, h)
+    name_start.setPixmap(pixmapimage)
+
+def frame4():
+    pixmapimage = QPixmap('eppy 4.png')
+    w, h = 100, 100
+    pixmapimage = pixmapimage.scaled(w, h)
+    name_start.setPixmap(pixmapimage)
+
+def frame5():
+    pixmapimage = QPixmap('eppy 5.png')
+    w, h = 100, 100
+    pixmapimage = pixmapimage.scaled(w, h)
+    name_start.setPixmap(pixmapimage)
+
+def frame6():
+    pixmapimage = QPixmap('eppy 6.png')
+    w, h = 100, 100
+    pixmapimage = pixmapimage.scaled(w, h)
+    name_start.setPixmap(pixmapimage)
+
+# def animation():
+#     # global animka
+#     # while animka != False:
+#     frame1()
+#     sleep(1)
+#     frame2()
+#     sleep(1)
+#     frame3()
+#     sleep(1)
+#     frame4()
+#     sleep(1)
+#     frame5()
+#     sleep(1)
+#     frame6()
 
 def homeworking():
     russian.setChecked(False)
@@ -248,6 +335,13 @@ def work():
     hide_main()
     H2_Line.addWidget(type_work)
 
+    type_work.show()
+    klass_work.show()
+    sam_work.show()
+    check_work.show()
+    ctrl_work.show()
+    exam.show()
+
     V2_Line.addWidget(klass_work)
     V2_Line.addWidget(sam_work)
     V2_Line.addWidget(check_work)
@@ -261,6 +355,20 @@ def choose():
     check_work.hide()
     ctrl_work.hide()
     exam.hide()
+
+    subject.show()
+    russian_bottom.show()
+    literatur_bottom.show()
+    manth_bottom.show()
+    geo_bottom.show()
+    chemist_bottom.show()
+    bio_bottom.show()
+    history_bottom.show()
+    piple_bottom.show()
+    phisics_bottom.show() 
+    informatik_bottom.show() 
+    eng_bottom.show() 
+    obg_bottom.show()
 
     H2_Line.addWidget(subject)
     
@@ -280,6 +388,12 @@ def choose():
     subject.setAlignment(Qt.AlignCenter)
 
 def marks():
+    best_mark.setChecked(False)
+    well_mark.setChecked(False)
+    good_mark.setChecked(False)
+    bad_mark.setChecked(False)
+    # bottom_final.setChecked(False)
+
     subject.hide()
     russian_bottom.hide()
     literatur_bottom.hide()
@@ -294,6 +408,14 @@ def marks():
     eng_bottom.hide() 
     obg_bottom.hide()
 
+    what_mark.show()
+    best_mark.show()
+    well_mark.show()
+    good_mark.show()
+    bad_mark.show()
+    bottom_final.show()
+
+
     H2_Line.addWidget(what_mark)
     V2_Line.addWidget(best_mark)
     V2_Line.addWidget(well_mark)
@@ -302,10 +424,8 @@ def marks():
     H_Line.addWidget(bottom_final)
 
 def kys_back():
-    razvilka.show()
-    homework.show()
-    works.show()
-    info.show()
+    show_main()
+
     what_mark.hide()
     kys.hide()
 
@@ -318,6 +438,8 @@ def score_mark():
     good_mark.hide()
     bad_mark.hide()
     bottom_final.hide()
+
+    kys.show()
     H_Line.addWidget(kys)
     
     #КЛАССНАЯ ЧЕТВЁРКА
@@ -1395,6 +1517,15 @@ def score_mark():
             sheld -= 10
             hp -= 10
             final -= 10 + 10 + 10
+    
+    if best_mark.isChecked:
+        loadImage_hape()
+    if well_mark.isChecked:
+        loadImage_well()
+    if good_mark.isChecked:
+        loadImage_gret()
+    if bad_mark.isChecked:
+        loadImage_bad()
     infourok.setText(f'Ваша статистика:\nУровень: {lvl}\n\nЗдоровье: {hp}\nЗащита: {sheld}\nРазум: {brain}\nКрасноречие: {talking}\nОбществознание: {world_edu}\nЗельеварение: {poison}\n\n\nВсего очков: {final}')
 
 def deanon():
