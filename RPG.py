@@ -15,7 +15,25 @@ world_edu = 0
 
 final = 0
 lvl = 0
-animka = True
+
+klass = False
+sam = False
+check = False
+ctrl = False
+ex = False
+
+russian = False
+litra = False
+matimatik = False
+geografi = False
+himic = False
+biologi = False
+istoria = False
+obshestvo = False
+fisic = False
+python_cool = False
+fabric = False
+obege = False
 
 name = 'start name'
 
@@ -120,7 +138,7 @@ def score():
         final += 45
     now.setText(f"За домашку вы получили: {final} очков!!!")
     infourok.setText(f'Ваша статистика:\nУровень: {lvl}\n\nЗдоровье: {hp}\nЗащита: {sheld}\nРазум: {brain}\nКрасноречие: {talking}\nОбществознание: {world_edu}\nЗельеварение: {poison}\n\n\nВсего очков: {final}')
-    final = 0
+    # final = 0
 
 def good_job():
     global lvl
@@ -143,13 +161,13 @@ def good_job():
     if final >= 405:
         lvl += 1
         show_lvl.setText(f"Ваш уровень: {lvl}")
-    if final >= 405 * 2:
-        lvl += 1
-        show_lvl.setText(f"Ваш уровень: {lvl}")
     if final >= 405 * 4:
         lvl += 1
         show_lvl.setText(f"Ваш уровень: {lvl}")
     if final >= 405 * 8:
+        lvl += 1
+        show_lvl.setText(f"Ваш уровень: {lvl}")
+    if final >= 405 * 10:
         lvl += 1
         show_lvl.setText(f"Ваш уровень: {lvl}")
     
@@ -230,56 +248,56 @@ def loadImage_bad():
     pixmapimage = pixmapimage.scaled(w, h)
     name_start.setPixmap(pixmapimage)
 
-def frame1():
-    pixmapimage = QPixmap('eppy 1.png')
-    w, h = 100, 100
-    pixmapimage = pixmapimage.scaled(w, h)
-    name_start.setPixmap(pixmapimage)
+# def frame1():
+#     pixmapimage = QPixmap('eppy 1.png')
+#     w, h = 100, 100
+#     pixmapimage = pixmapimage.scaled(w, h)
+#     name_start.setPixmap(pixmapimage)
 
-def frame2():
-    pixmapimage = QPixmap('eppy 2.png')
-    w, h = 100, 100
-    pixmapimage = pixmapimage.scaled(w, h)
-    name_start.setPixmap(pixmapimage)
+# def frame2():
+#     pixmapimage = QPixmap('eppy 2.png')
+#     w, h = 100, 100
+#     pixmapimage = pixmapimage.scaled(w, h)
+#     name_start.setPixmap(pixmapimage)
 
-def frame3():
-    pixmapimage = QPixmap('eppy 3.png')
-    w, h = 100, 100
-    pixmapimage = pixmapimage.scaled(w, h)
-    name_start.setPixmap(pixmapimage)
+# def frame3():
+#     pixmapimage = QPixmap('eppy 3.png')
+#     w, h = 100, 100
+#     pixmapimage = pixmapimage.scaled(w, h)
+#     name_start.setPixmap(pixmapimage)
 
-def frame4():
-    pixmapimage = QPixmap('eppy 4.png')
-    w, h = 100, 100
-    pixmapimage = pixmapimage.scaled(w, h)
-    name_start.setPixmap(pixmapimage)
+# def frame4():
+#     pixmapimage = QPixmap('eppy 4.png')
+#     w, h = 100, 100
+#     pixmapimage = pixmapimage.scaled(w, h)
+#     name_start.setPixmap(pixmapimage)
 
-def frame5():
-    pixmapimage = QPixmap('eppy 5.png')
-    w, h = 100, 100
-    pixmapimage = pixmapimage.scaled(w, h)
-    name_start.setPixmap(pixmapimage)
+# def frame5():
+#     pixmapimage = QPixmap('eppy 5.png')
+#     w, h = 100, 100
+#     pixmapimage = pixmapimage.scaled(w, h)
+#     name_start.setPixmap(pixmapimage)
 
-def frame6():
-    pixmapimage = QPixmap('eppy 6.png')
-    w, h = 100, 100
-    pixmapimage = pixmapimage.scaled(w, h)
-    name_start.setPixmap(pixmapimage)
+# def frame6():
+#     pixmapimage = QPixmap('eppy 6.png')
+#     w, h = 100, 100
+#     pixmapimage = pixmapimage.scaled(w, h)
+#     name_start.setPixmap(pixmapimage)
 
-# def animation():
-#     # global animka
-#     # while animka != False:
-#     frame1()
-#     sleep(1)
-#     frame2()
-#     sleep(1)
-#     frame3()
-#     sleep(1)
-#     frame4()
-#     sleep(1)
-#     frame5()
-#     sleep(1)
-#     frame6()
+# # def animation():
+# #     # global animka
+# #     # while animka != False:
+# #     frame1()
+# #     sleep(1)
+# #     frame2()
+# #     sleep(1)
+# #     frame3()
+# #     sleep(1)
+# #     frame4()
+# #     sleep(1)
+# #     frame5()
+# #     sleep(1)
+# #     frame6()
 
 def homeworking():
     russian.setChecked(False)
@@ -341,20 +359,35 @@ def work():
     check_work.show()
     ctrl_work.show()
     exam.show()
+    lesson.show()
 
     V2_Line.addWidget(klass_work)
     V2_Line.addWidget(sam_work)
     V2_Line.addWidget(check_work)
     V2_Line.addWidget(ctrl_work)
     V2_Line.addWidget(exam)
+    H2_Line.addWidget(lesson)
 
 def choose():
+    global klass, sam, check, ctrl, ex
     type_work.hide()
     klass_work.hide()
     sam_work.hide()
     check_work.hide()
     ctrl_work.hide()
     exam.hide()
+    lesson.hide()
+
+    if klass_work.isChecked():
+        klass = True
+    if sam_work.isChecked():
+        sam = True
+    if check_work.isChecked():
+        check = True
+    if ctrl_work.isChecked():
+        ctrl = True
+    if exam.isChecked():
+        ex = True
 
     subject.show()
     russian_bottom.show()
@@ -369,7 +402,7 @@ def choose():
     informatik_bottom.show() 
     eng_bottom.show() 
     obg_bottom.show()
-
+    btn_mark.show()
     H2_Line.addWidget(subject)
     
     V_Line.addWidget(russian_bottom)
@@ -385,14 +418,40 @@ def choose():
     V2_Line.addWidget(obg_bottom)
     V_Line.addWidget(informatik_bottom)
     V2_Line.addWidget(eng_bottom)
+    H_Line.addWidget(btn_mark)
     subject.setAlignment(Qt.AlignCenter)
 
 def marks():
-    best_mark.setChecked(False)
-    well_mark.setChecked(False)
-    good_mark.setChecked(False)
-    bad_mark.setChecked(False)
+    global russian, litra, matimatik, geografi, himic, biologi, istoria, obshestvo, fisic, python_cool, fabric, obege
+    # best_mark.setChecked(False)
+    # well_mark.setChecked(False)
+    # good_mark.setChecked(False)
+    # bad_mark.setChecked(False)
     # bottom_final.setChecked(False)
+    if russian_bottom.isChecked():
+        russian = True
+    if literatur_bottom.isChecked():
+        litra = True
+    if manth_bottom.isChecked():
+        matimatik = True
+    if geo_bottom.isChecked():
+        geografi  = True
+    if chemist_bottom.isChecked():
+        himic = True
+    if bio_bottom.isChecked():
+        biologi  = True
+    if history_bottom.isChecked():
+        istoria = True
+    if piple_bottom.isChecked():
+        obshestvo = True
+    if phisics_bottom.isChecked():
+        fisic = True
+    if informatik_bottom.isChecked():
+        python_cool = True
+    if eng_bottom.isChecked():
+        fabric = True
+    if obg_bottom.isChecked():
+        obege = True
 
     subject.hide()
     russian_bottom.hide()
@@ -407,7 +466,8 @@ def marks():
     informatik_bottom.hide() 
     eng_bottom.hide() 
     obg_bottom.hide()
-
+    btn_mark.hide()
+    
     what_mark.show()
     best_mark.show()
     well_mark.show()
@@ -423,6 +483,7 @@ def marks():
     V2_Line.addWidget(bad_mark)
     H_Line.addWidget(bottom_final)
 
+
 def kys_back():
     show_main()
 
@@ -431,7 +492,7 @@ def kys_back():
 
 def score_mark():
     global hp, sheld, brain, talking, poison, world_edu, final, lvl
-
+    global klass, sam, check, ctrl, ex, russian, litra, matimatik, geografi, himic, biologi, istoria, obshestvo, fisic, python_cool, fabric, obege
     what_mark.setText('Хорошая работа!')
     best_mark.hide()
     well_mark.hide()
@@ -443,63 +504,62 @@ def score_mark():
     H_Line.addWidget(kys)
     
     #КЛАССНАЯ ЧЕТВЁРКА
-
-    if klass_work.isChecked() and russian_bottom.isChecked() and well_mark.isChecked():
+    if russian and russian and well_mark.isChecked():
         talking += 70
         world_edu += 50
         
         final += 120
-    if klass_work.isChecked() and literatur_bottom.isChecked() and well_mark.isChecked():
+    if klass and litra and well_mark.isChecked():
         brain += 45
         talking += 25
         world_edu += 25
 
         final += 95
-    if klass_work.isChecked() and manth_bottom.isChecked() and well_mark.isChecked():
+    if klass and matimatik and well_mark.isChecked():
         brain += 20
 
         final += 20
-    if klass_work.isChecked() and geo_bottom.isChecked() and well_mark.isChecked():
+    if klass and geografi and well_mark.isChecked():
         brain += 20
         world_edu += 25
 
         final += 45
-    if klass_work.isChecked() and chemist_bottom.isChecked() and well_mark.isChecked():
+    if klass and himic and well_mark.isChecked():
         poison += 25
         hp += 25
 
         final += 50
-    if klass_work.isChecked() and bio_bottom.isChecked() and well_mark.isChecked():
+    if klass and biologi and well_mark.isChecked():
         hp += 25
         sheld += 25
 
         final += 50
-    if klass_work.isChecked() and history_bottom.isChecked() and well_mark.isChecked():
+    if klass and istoria and well_mark.isChecked():
         world_edu += 25
         talking += 25
 
         final += 50
-    if klass_work.isChecked() and piple_bottom.isChecked() and well_mark.isChecked():
+    if klass and obshestvo and well_mark.isChecked():
         hp += 20
         brain += 25
         world_edu += 25
         talking += 20
 
         final += 90
-    if klass_work.isChecked() and phisics_bottom.isChecked() and well_mark.isChecked():
+    if klass and fisic and well_mark.isChecked():
         brain += 30
 
         final += 30
-    if klass_work.isChecked() and informatik_bottom.isChecked() and well_mark.isChecked():
+    if klass and python_cool and well_mark.isChecked():
         sheld += 40
         brain += 20
 
         final += 60
-    if klass_work.isChecked() and eng_bottom.isChecked() and well_mark.isChecked():
+    if klass and fabric and well_mark.isChecked():
         talking += 55
 
         final += 55
-    if klass_work.isChecked() and obg_bottom.isChecked() and well_mark.isChecked():
+    if klass and obege and well_mark.isChecked():
         world_edu += 20
         sheld += 25
         hp += 25
@@ -507,62 +567,62 @@ def score_mark():
         final += 70
     ##КЛАССНАЯ ПЯТЁРКА
 
-    if klass_work.isChecked() and russian_bottom.isChecked() and best_mark.isChecked():
+    if klass and russian and best_mark.isChecked():
         talking += 85
         world_edu += 75
 
         final += 160
-    if klass_work.isChecked() and literatur_bottom.isChecked() and best_mark.isChecked():
+    if klass and litra and best_mark.isChecked():
         brain += 70
         talking += 50
         world_edu += 50
 
         final += 170
-    if klass_work.isChecked() and manth_bottom.isChecked() and best_mark.isChecked():
+    if klass and matimatik and best_mark.isChecked():
         brain += 45
 
         final += 45
-    if klass_work.isChecked() and geo_bottom.isChecked() and best_mark.isChecked():
+    if klass and geografi and best_mark.isChecked():
         brain += 45
         world_edu += 50
 
         final += 95
-    if klass_work.isChecked() and chemist_bottom.isChecked() and best_mark.isChecked():
+    if klass and himic and best_mark.isChecked():
         poison += 50
         hp += 50
 
         final += 100
-    if klass_work.isChecked() and bio_bottom.isChecked() and best_mark.isChecked():
+    if klass and biologi and best_mark.isChecked():
         hp += 50
         sheld += 50
 
         final += 100
-    if klass_work.isChecked() and history_bottom.isChecked() and best_mark.isChecked():
+    if klass and istoria and best_mark.isChecked():
         world_edu += 50
         talking += 50
 
         final += 100
-    if klass_work.isChecked() and piple_bottom.isChecked() and best_mark.isChecked():
+    if klass and obshestvo and best_mark.isChecked():
         hp += 45
         brain += 50
         world_edu += 50
         talking += 45
 
         final += 190
-    if klass_work.isChecked() and phisics_bottom.isChecked() and best_mark.isChecked():
+    if klass and fisic and best_mark.isChecked():
         brain += 55
 
         final += 55
-    if klass_work.isChecked() and informatik_bottom.isChecked() and best_mark.isChecked():
+    if klass and python_cool and best_mark.isChecked():
         sheld += 65
         brain += 45
 
         final += 110
-    if klass_work.isChecked() and eng_bottom.isChecked() and best_mark.isChecked():
+    if klass and fabric and best_mark.isChecked():
         talking += 80
 
         final += 80
-    if klass_work.isChecked() and obg_bottom.isChecked() and best_mark.isChecked():
+    if klass and obege and best_mark.isChecked():
         world_edu += 45
         sheld += 50
         hp += 50
@@ -570,62 +630,62 @@ def score_mark():
         final += 145
     #КЛАССНАЯ ТРОЙКА
 
-    if klass_work.isChecked() and russian_bottom.isChecked() and good_mark.isChecked():
+    if klass and russian and good_mark.isChecked():
         talking += 55
         world_edu += 35
 
         final += 90
-    if klass_work.isChecked() and literatur_bottom.isChecked() and good_mark.isChecked():
+    if klass and litra and good_mark.isChecked():
         brain += 30
         talking += 10
         world_edu += 10
 
         final += 50
-    if klass_work.isChecked() and manth_bottom.isChecked() and good_mark.isChecked():
+    if klass and matimatik and good_mark.isChecked():
         brain += 10
 
         final += 10
-    if klass_work.isChecked() and geo_bottom.isChecked() and good_mark.isChecked():
+    if klass and geografi and good_mark.isChecked():
         brain += 10
         world_edu += 10
 
         final += 20
-    if klass_work.isChecked() and chemist_bottom.isChecked() and good_mark.isChecked():
+    if klass and himic and good_mark.isChecked():
         poison += 10
         hp += 10
 
         final += 20
-    if klass_work.isChecked() and bio_bottom.isChecked() and good_mark.isChecked():
+    if klass and biologi and good_mark.isChecked():
         hp += 10
         sheld += 10
 
         final += 20
-    if klass_work.isChecked() and history_bottom.isChecked() and good_mark.isChecked():
+    if klass and istoria and good_mark.isChecked():
         world_edu += 10
         talking += 10
 
         final += 20
-    if klass_work.isChecked() and piple_bottom.isChecked() and good_mark.isChecked():
+    if klass and obshestvo and good_mark.isChecked():
         hp += 10
         brain += 10
         world_edu += 10
         talking += 10
 
         final += 40
-    if klass_work.isChecked() and phisics_bottom.isChecked() and good_mark.isChecked():
+    if klass and fisic and good_mark.isChecked():
         brain += 15
 
         final += 15
-    if klass_work.isChecked() and informatik_bottom.isChecked() and good_mark.isChecked():
+    if klass and python_cool and good_mark.isChecked():
         sheld += 25
         brain += 10
 
         final += 35
-    if klass_work.isChecked() and eng_bottom.isChecked() and good_mark.isChecked():
+    if klass and fabric and good_mark.isChecked():
         talking += 40
 
         final += 40
-    if klass_work.isChecked() and obg_bottom.isChecked() and good_mark.isChecked():
+    if klass and obege and good_mark.isChecked():
         world_edu += 10
         sheld += 10
         hp += 10
@@ -634,470 +694,470 @@ def score_mark():
 
     #КЛАССНАЯ ПАРАША
 
-    if klass_work.isChecked() and russian_bottom.isChecked() and bad_mark.isChecked():
+    if klass and russian and bad_mark.isChecked():
         talking -= 30
         world_edu -= 15
 
         final -= 45
-    if klass_work.isChecked() and literatur_bottom.isChecked() and bad_mark.isChecked():
+    if klass and litra and bad_mark.isChecked():
         brain -= 15
         talking -= 10
         world_edu -= 10
 
         final -= 45
-    if klass_work.isChecked() and manth_bottom.isChecked() and bad_mark.isChecked():
+    if klass and matimatik and bad_mark.isChecked():
         brain -= 10
 
         final -= 10
-    if klass_work.isChecked() and geo_bottom.isChecked() and bad_mark.isChecked():
+    if klass and geografi and bad_mark.isChecked():
         brain -= 10
         world_edu -= 10
 
         final -= 20
-    if klass_work.isChecked() and chemist_bottom.isChecked() and bad_mark.isChecked():
+    if klass and himic and bad_mark.isChecked():
         poison -= 10
         hp -= 10
 
         final -= 20
-    if klass_work.isChecked() and bio_bottom.isChecked() and bad_mark.isChecked():
+    if klass and biologi and bad_mark.isChecked():
         hp -= 10
         sheld -= 10
 
         final -= 20
-    if klass_work.isChecked() and history_bottom.isChecked() and bad_mark.isChecked():
+    if klass and istoria and bad_mark.isChecked():
         world_edu -= 10
         talking -= 10
         final -= 20
-    if klass_work.isChecked() and piple_bottom.isChecked() and bad_mark.isChecked():
+    if klass and obshestvo and bad_mark.isChecked():
         hp -= 10
         brain -= 10
         world_edu -= 10
         talking -= 10
 
         final -= 40
-    if klass_work.isChecked() and phisics_bottom.isChecked() and bad_mark.isChecked():
+    if klass and fisic and bad_mark.isChecked():
         brain -= 15
 
         final -= 15
-    if klass_work.isChecked() and informatik_bottom.isChecked() and bad_mark.isChecked():
+    if klass and python_cool and bad_mark.isChecked():
         sheld -= 15
         brain -= 10
 
         final -= 25                                             
-    if klass_work.isChecked() and eng_bottom.isChecked() and bad_mark.isChecked():
+    if klass and fabric and bad_mark.isChecked():
         talking -= 20
 
         final -= 20
-    if klass_work.isChecked() and obg_bottom.isChecked() and bad_mark.isChecked():
+    if klass and obege and bad_mark.isChecked():
         world_edu -= 10
         sheld -= 10
         hp -= 10
         final -= 30
 
-    if sam_work.isChecked():
-        if russian_bottom.isChecked() and well_mark.isChecked():
+    if sam:
+        if russian and well_mark.isChecked():
             talking += 70 + 15
             world_edu += 50 + 15
             final += (70 + 15) + (50 + 15)
-        if literatur_bottom.isChecked() and well_mark.isChecked():
+        if litra and well_mark.isChecked():
             brain += 45 + 15
             talking += 25 + 15
             world_edu += 25 + 15
             final += (45 + 15) + (25 + 15) + (25 + 15)
-        if manth_bottom.isChecked() and well_mark.isChecked():
+        if matimatik and well_mark.isChecked():
             brain += 20 + 15
             final += 20 + 15
-        if geo_bottom.isChecked() and well_mark.isChecked():
+        if geografi and well_mark.isChecked():
             brain += 20 + 15
             world_edu += 25 + 15
             final += (20 + 15) + (25 + 15)
-        if chemist_bottom.isChecked() and well_mark.isChecked():
+        if himic and well_mark.isChecked():
             poison += 25 + 15
             hp += 25 + 15
             final += (25 + 15) + (25 + 15)
-        if bio_bottom.isChecked() and well_mark.isChecked():
+        if biologi and well_mark.isChecked():
             hp += 25 + 15
             sheld += 25 + 15
             final += (25 + 15) + (25 + 15)
-        if history_bottom.isChecked() and well_mark.isChecked():
+        if istoria and well_mark.isChecked():
             world_edu += 25 + 15
             talking += 25 + 15
             final += (25 + 15) + (25 + 15)
-        if piple_bottom.isChecked() and well_mark.isChecked():
+        if obshestvo and well_mark.isChecked():
             hp += 20 + 15
             brain += 25 + 15
             world_edu += 25 + 15
             talking += 20 + 15
             final += (20 + 15) + (25 + 15) + (25 + 15) + (20 + 15)
-        if phisics_bottom.isChecked() and well_mark.isChecked():
+        if fisic and well_mark.isChecked():
             brain += 30 + 15
             final += 30 + 15
-        if informatik_bottom.isChecked() and well_mark.isChecked():
+        if python_cool and well_mark.isChecked():
             sheld += 40 + 15
             brain += 20 + 15
             final += (40 + 15) + (20 + 15)
-        if eng_bottom.isChecked() and well_mark.isChecked():
+        if fabric and well_mark.isChecked():
             talking += 55 + 15
             final += 55 + 15
-        if obg_bottom.isChecked() and well_mark.isChecked():
+        if obege and well_mark.isChecked():
             world_edu += 20 + 15
             sheld += 25 + 15
             hp += 25 + 15
             final += (20 + 15) + (25 + 15) + (25 + 15)
 
         # КЛАССНАЯ ПЯТЁРКА
-        if russian_bottom.isChecked() and best_mark.isChecked():
+        if russian and best_mark.isChecked():
             talking += 85 + 15
             world_edu += 75 + 15
             final += (85 + 15) + (75 + 15)
-        if literatur_bottom.isChecked() and best_mark.isChecked():
+        if litra and best_mark.isChecked():
             brain += 70 + 15
             talking += 50 + 15
             world_edu += 50 + 15
             final += (70 + 15) + (50 + 15) + (50 + 15)
-        if manth_bottom.isChecked() and best_mark.isChecked():
+        if matimatik and best_mark.isChecked():
             brain += 45 + 15
             final += 45 + 15
-        if geo_bottom.isChecked() and best_mark.isChecked():
+        if geografi and best_mark.isChecked():
             brain += 45 + 15
             world_edu += 50 + 15
             final += (45 + 15) + (50 + 15)
-        if chemist_bottom.isChecked() and best_mark.isChecked():
+        if himic and best_mark.isChecked():
             poison += 50 + 15
             hp += 50 + 15
             final += (50 + 15) + (50 + 15)
-        if bio_bottom.isChecked() and best_mark.isChecked():
+        if biologi and best_mark.isChecked():
             hp += 50 + 15
             sheld += 50 + 15
             final += (50 + 15) + (50 + 15)
-        if history_bottom.isChecked() and best_mark.isChecked():
+        if istoria and best_mark.isChecked():
             world_edu += 50 + 15
             talking += 50 + 15
             final += (50 + 15) + (50 + 15)
-        if piple_bottom.isChecked() and best_mark.isChecked():
+        if obshestvo and best_mark.isChecked():
             hp += 45 + 15
             brain += 50 + 15
             world_edu += 50 + 15
             talking += 45 + 15
             final += (45 + 15) + (50 + 15) + (50 + 15) + (45 + 15)
-        if phisics_bottom.isChecked() and best_mark.isChecked():
+        if fisic and best_mark.isChecked():
             brain += 55 + 15
             final += 55 + 15
-        if informatik_bottom.isChecked() and best_mark.isChecked():
+        if python_cool and best_mark.isChecked():
             sheld += 65 + 15
             brain += 45 + 15
             final += (65 + 15) + (45 + 15)
-        if eng_bottom.isChecked() and best_mark.isChecked():
+        if fabric and best_mark.isChecked():
             talking += 80 + 15
             final += 80 + 15
-        if obg_bottom.isChecked() and best_mark.isChecked():
+        if obege and best_mark.isChecked():
             world_edu += 45 + 15
             sheld += 50 + 15
             hp += 50 + 15
             final += (45 + 15) + (50 + 15) + (50 + 15)
 
         # КЛАССНАЯ ТРОЙКА
-        if russian_bottom.isChecked() and good_mark.isChecked():
+        if russian and good_mark.isChecked():
             talking += 55 + 15
             world_edu += 35 + 15
             final += (55 + 15) + (35 + 15)
-        if literatur_bottom.isChecked() and good_mark.isChecked():
+        if litra and good_mark.isChecked():
             brain += 30 + 15
             talking += 10 + 15
             world_edu += 10 + 15
             final += (30 + 15) + (10 + 15) + (10 + 15)
-        if manth_bottom.isChecked() and good_mark.isChecked():
+        if matimatik and good_mark.isChecked():
             brain += 10 + 15
             final += 10 + 15
-        if geo_bottom.isChecked() and good_mark.isChecked():
+        if geografi and good_mark.isChecked():
             brain += 10 + 15
             world_edu += 10 + 15
             final += (10 + 15) + (10 + 15)
-        if chemist_bottom.isChecked() and good_mark.isChecked():
+        if himic and good_mark.isChecked():
             poison += 10 + 15
             hp += 10 + 15
             final += (10 + 15) + (10 + 15)
-        if bio_bottom.isChecked() and good_mark.isChecked():
+        if biologi and good_mark.isChecked():
             hp += 10 + 15
             sheld += 10 + 15
             final += (10 + 15) + (10 + 15)
-        if history_bottom.isChecked() and good_mark.isChecked():
+        if istoria and good_mark.isChecked():
             world_edu += 10 + 15
             talking += 10 + 15
             final += (10 + 15) + (10 + 15)
-        if piple_bottom.isChecked() and good_mark.isChecked():
+        if obshestvo and good_mark.isChecked():
             hp += 10 + 15
             brain += 10 + 15
             world_edu += 10 + 15
             talking += 10 + 15
             final += (10 + 15) + (10 + 15) + (10 + 15) + (10 + 15)
-        if phisics_bottom.isChecked() and good_mark.isChecked():
+        if fisic and good_mark.isChecked():
             brain += 15 + 15
             final += 15 + 15
-        if informatik_bottom.isChecked() and good_mark.isChecked():
+        if python_cool and good_mark.isChecked():
             sheld += 25 + 15
             brain += 10 + 15
             final += (25 + 15) + (10 + 15)
-        if eng_bottom.isChecked() and good_mark.isChecked():
+        if fabric and good_mark.isChecked():
             talking += 40 + 15
             final += 40 + 15
-        if obg_bottom.isChecked() and good_mark.isChecked():
+        if obege and good_mark.isChecked():
             world_edu += 10 + 15
             sheld += 10 + 15
             hp += 10 + 15
             final += (10 + 15) + (10 + 15) + (10 + 15)
 
         # КЛАССНАЯ ПАРАША
-        if russian_bottom.isChecked() and bad_mark.isChecked():
+        if russian and bad_mark.isChecked():
             talking -= 30
             world_edu -= 15
             final -= 30 + 15
-        if literatur_bottom.isChecked() and bad_mark.isChecked():
+        if litra and bad_mark.isChecked():
             brain -= 15
             talking -= 10
             world_edu -= 10
             final -= 15 + 10 + 10
-        if manth_bottom.isChecked() and bad_mark.isChecked():
+        if matimatik and bad_mark.isChecked():
             brain -= 10
             final -= 10
-        if geo_bottom.isChecked() and bad_mark.isChecked():
+        if geografi and bad_mark.isChecked():
             brain -= 10
             world_edu -= 10
             final -= 10 + 10
-        if chemist_bottom.isChecked() and bad_mark.isChecked():
+        if himic and bad_mark.isChecked():
             poison -= 10
             hp -= 10
             final -= 10 + 10
-        if bio_bottom.isChecked() and bad_mark.isChecked():
+        if biologi and bad_mark.isChecked():
             hp -= 10
             sheld -= 10
             final -= 10 + 10
-        if history_bottom.isChecked() and bad_mark.isChecked():
+        if istoria and bad_mark.isChecked():
             world_edu -= 10
             talking -= 10
             final -= 10 + 10
-        if piple_bottom.isChecked() and bad_mark.isChecked():
+        if obshestvo and bad_mark.isChecked():
             hp -= 10
             brain -= 10
             world_edu -= 10
             talking -= 10
             final -= 10 + 10 + 10 + 10
-        if phisics_bottom.isChecked() and bad_mark.isChecked():
+        if fisic and bad_mark.isChecked():
             brain -= 15
             final -= 15
-        if informatik_bottom.isChecked() and bad_mark.isChecked():
+        if python_cool and bad_mark.isChecked():
             sheld -= 15
             brain -= 10
             final -= 15 + 10
-        if eng_bottom.isChecked() and bad_mark.isChecked():
+        if fabric and bad_mark.isChecked():
             talking -= 20
             final -= 20
-        if obg_bottom.isChecked() and bad_mark.isChecked():
+        if obege and bad_mark.isChecked():
             world_edu -= 10
             sheld -= 10
             hp -= 10
             final -= 10 + 10 + 10
     
 
-    if check_work.isChecked():
-        if russian_bottom.isChecked() and well_mark.isChecked():
+    if check:
+        if russian and well_mark.isChecked():
             talking += 70 + 30
             world_edu += 50 + 30
             final += (70 + 30) + (50 + 30)
-        if literatur_bottom.isChecked() and well_mark.isChecked():
+        if litra and well_mark.isChecked():
             brain += 45 + 30
             talking += 25 + 30
             world_edu += 25 + 30
             final += (45 + 30) + (25 + 30) + (25 + 30)
-        if manth_bottom.isChecked() and well_mark.isChecked():
+        if matimatik and well_mark.isChecked():
             brain += 20 + 30
             final += 20 + 30
-        if geo_bottom.isChecked() and well_mark.isChecked():
+        if geografi and well_mark.isChecked():
             brain += 20 + 30
             world_edu += 25 + 30
             final += (20 + 30) + (25 + 30)
-        if chemist_bottom.isChecked() and well_mark.isChecked():
+        if himic and well_mark.isChecked():
             poison += 25 + 30
             hp += 25 + 30
             final += (25 + 30) + (25 + 30)
-        if bio_bottom.isChecked() and well_mark.isChecked():
+        if biologi and well_mark.isChecked():
             hp += 25 + 30
             sheld += 25 + 30
             final += (25 + 30) + (25 + 30)
-        if history_bottom.isChecked() and well_mark.isChecked():
+        if istoria and well_mark.isChecked():
             world_edu += 25 + 30
             talking += 25 + 30
             final += (25 + 30) + (25 + 30)
-        if piple_bottom.isChecked() and well_mark.isChecked():
+        if obshestvo and well_mark.isChecked():
             hp += 20 + 30
             brain += 25 + 30
             world_edu += 25 + 30
             talking += 20 + 30
             final += (20 + 30) + (25 + 30) + (25 + 30) + (20 + 30)
-        if phisics_bottom.isChecked() and well_mark.isChecked():
+        if fisic and well_mark.isChecked():
             brain += 30 + 30
             final += 30 + 30
-        if informatik_bottom.isChecked() and well_mark.isChecked():
+        if python_cool and well_mark.isChecked():
             sheld += 40 + 30
             brain += 20 + 30
             final += (40 + 30) + (20 + 30)
-        if eng_bottom.isChecked() and well_mark.isChecked():
+        if fabric and well_mark.isChecked():
             talking += 55 + 30
             final += 55 + 30
-        if obg_bottom.isChecked() and well_mark.isChecked():
+        if obege and well_mark.isChecked():
             world_edu += 20 + 30
             sheld += 25 + 30
             hp += 25 + 30
             final += (20 + 30) + (25 + 30) + (25 + 30)
 
         # КЛАССНАЯ ПЯТЁРКА
-        if russian_bottom.isChecked() and best_mark.isChecked():
+        if russian and best_mark.isChecked():
             talking += 85 + 30
             world_edu += 75 + 30
             final += (85 + 30) + (75 + 30)
-        if literatur_bottom.isChecked() and best_mark.isChecked():
+        if litra and best_mark.isChecked():
             brain += 70 + 30
             talking += 50 + 30
             world_edu += 50 + 30
             final += (70 + 30) + (50 + 30) + (50 + 30)
-        if manth_bottom.isChecked() and best_mark.isChecked():
+        if matimatik and best_mark.isChecked():
             brain += 45 + 30
             final += 45 + 30
-        if geo_bottom.isChecked() and best_mark.isChecked():
+        if geografi and best_mark.isChecked():
             brain += 45 + 30
             world_edu += 50 + 30
             final += (45 + 30) + (50 + 30)
-        if chemist_bottom.isChecked() and best_mark.isChecked():
+        if himic and best_mark.isChecked():
             poison += 50 + 30
             hp += 50 + 30
             final += (50 + 30) + (50 + 30)
-        if bio_bottom.isChecked() and best_mark.isChecked():
+        if biologi and best_mark.isChecked():
             hp += 50 + 30
             sheld += 50 + 30
             final += (50 + 30) + (50 + 30)
-        if history_bottom.isChecked() and best_mark.isChecked():
+        if istoria and best_mark.isChecked():
             world_edu += 50 + 30
             talking += 50 + 30
             final += (50 + 30) + (50 + 30)
-        if piple_bottom.isChecked() and best_mark.isChecked():
+        if obshestvo and best_mark.isChecked():
             hp += 45 + 30
             brain += 50 + 30
             world_edu += 50 + 30
             talking += 45 + 30
             final += (45 + 30) + (50 + 30) + (50 + 30) + (45 + 30)
-        if phisics_bottom.isChecked() and best_mark.isChecked():
+        if fisic and best_mark.isChecked():
             brain += 55 + 30
             final += 55 + 30
-        if informatik_bottom.isChecked() and best_mark.isChecked():
+        if python_cool and best_mark.isChecked():
             sheld += 65 + 30
             brain += 45 + 30
             final += (65 + 30) + (45 + 30)
-        if eng_bottom.isChecked() and best_mark.isChecked():
+        if fabric and best_mark.isChecked():
             talking += 80 + 30
             final += 80 + 30
-        if obg_bottom.isChecked() and best_mark.isChecked():
+        if obege and best_mark.isChecked():
             world_edu += 45 + 30
             sheld += 50 + 30
             hp += 50 + 30
             final += (45 + 30) + (50 + 30) + (50 + 30)
 
         # КЛАССНАЯ ТРОЙКА
-        if russian_bottom.isChecked() and good_mark.isChecked():
+        if russian and good_mark.isChecked():
             talking += 55 + 30
             world_edu += 35 + 30
             final += (55 + 30) + (35 + 30)
-        if literatur_bottom.isChecked() and good_mark.isChecked():
+        if litra and good_mark.isChecked():
             brain += 30 + 30
             talking += 10 + 30
             world_edu += 10 + 30
             final += (30 + 30) + (10 + 30) + (10 + 30)
-        if manth_bottom.isChecked() and good_mark.isChecked():
+        if matimatik and good_mark.isChecked():
             brain += 10 + 30
             final += 10 + 30
-        if geo_bottom.isChecked() and good_mark.isChecked():
+        if geografi and good_mark.isChecked():
             brain += 10 + 30
             world_edu += 10 + 30
             final += (10 + 30) + (10 + 30)
-        if chemist_bottom.isChecked() and good_mark.isChecked():
+        if himic and good_mark.isChecked():
             poison += 10 + 30
             hp += 10 + 30
             final += (10 + 30) + (10 + 30)
-        if bio_bottom.isChecked() and good_mark.isChecked():
+        if biologi and good_mark.isChecked():
             hp += 10 + 30
             sheld += 10 + 30
             final += (10 + 30) + (10 + 30)
-        if history_bottom.isChecked() and good_mark.isChecked():
+        if istoria and good_mark.isChecked():
             world_edu += 10 + 30
             talking += 10 + 30
             final += (10 + 30) + (10 + 30)
-        if piple_bottom.isChecked() and good_mark.isChecked():
+        if obshestvo and good_mark.isChecked():
             hp += 10 + 30
             brain += 10 + 30
             world_edu += 10 + 30
             talking += 10 + 30
             final += (10 + 30) + (10 + 30) + (10 + 30) + (10 + 30)
-        if phisics_bottom.isChecked() and good_mark.isChecked():
+        if fisic and good_mark.isChecked():
             brain += 15 + 30
             final += 15 + 30
-        if informatik_bottom.isChecked() and good_mark.isChecked():
+        if python_cool and good_mark.isChecked():
             sheld += 25 + 30
             brain += 10 + 30
             final += (25 + 30) + (10 + 30)
-        if eng_bottom.isChecked() and good_mark.isChecked():
+        if fabric and good_mark.isChecked():
             talking += 40 + 30
             final += 40 + 30
-        if obg_bottom.isChecked() and good_mark.isChecked():
+        if obege and good_mark.isChecked():
             world_edu += 10 + 30
             sheld += 10 + 30
             hp += 10 + 30
             final += (10 + 30) + (10 + 30) + (10 + 30)
 
         # КЛАССНАЯ ПАРАША
-        if russian_bottom.isChecked() and bad_mark.isChecked():
+        if russian and bad_mark.isChecked():
             talking -= 30
             world_edu -= 15
             final -= 30 + 15
-        if literatur_bottom.isChecked() and bad_mark.isChecked():
+        if litra and bad_mark.isChecked():
             brain -= 15
             talking -= 10
             world_edu -= 10
             final -= 15 + 10 + 10
-        if manth_bottom.isChecked() and bad_mark.isChecked():
+        if matimatik and bad_mark.isChecked():
             brain -= 10
             final -= 10
-        if geo_bottom.isChecked() and bad_mark.isChecked():
+        if geografi and bad_mark.isChecked():
             brain -= 10
             world_edu -= 10
             final -= 10 + 10
-        if chemist_bottom.isChecked() and bad_mark.isChecked():
+        if himic and bad_mark.isChecked():
             poison -= 10
             hp -= 10
             final -= 10 + 10
-        if bio_bottom.isChecked() and bad_mark.isChecked():
+        if biologi and bad_mark.isChecked():
             hp -= 10
             sheld -= 10
             final -= 10 + 10
-        if history_bottom.isChecked() and bad_mark.isChecked():
+        if istoria and bad_mark.isChecked():
             world_edu -= 10
             talking -= 10
             final -= 10 + 10
-        if piple_bottom.isChecked() and bad_mark.isChecked():
+        if obshestvo and bad_mark.isChecked():
             hp -= 10
             brain -= 10
             world_edu -= 10
             talking -= 10
             final -= 10 + 10 + 10 + 10
-        if phisics_bottom.isChecked() and bad_mark.isChecked():
+        if fisic and bad_mark.isChecked():
             brain -= 15
             final -= 15
-        if informatik_bottom.isChecked() and bad_mark.isChecked():
+        if python_cool and bad_mark.isChecked():
             sheld -= 15
             brain -= 10
             final -= 15 + 10
-        if eng_bottom.isChecked() and bad_mark.isChecked():
+        if fabric and bad_mark.isChecked():
             talking -= 20
             final -= 20
-        if obg_bottom.isChecked() and bad_mark.isChecked():
+        if obege and bad_mark.isChecked():
             world_edu -= 10
             sheld -= 10
             hp -= 10
@@ -1109,422 +1169,422 @@ def score_mark():
 
 
 
-    if ctrl_work.isChecked():
-        if russian_bottom.isChecked() and well_mark.isChecked():
+    if ctrl:
+        if russian and well_mark.isChecked():
             talking += 70 + 50
             world_edu += 50 + 50
             final += (70 + 50) + (50 + 50)
-        if literatur_bottom.isChecked() and well_mark.isChecked():
+        if litra and well_mark.isChecked():
             brain += 45 + 50
             talking += 25 + 50
             world_edu += 25 + 50
             final += (45 + 50) + (25 + 50) + (25 + 50)
-        if manth_bottom.isChecked() and well_mark.isChecked():
+        if matimatik and well_mark.isChecked():
             brain += 20 + 50
             final += 20 + 50
-        if geo_bottom.isChecked() and well_mark.isChecked():
+        if geografi and well_mark.isChecked():
             brain += 20 + 50
             world_edu += 25 + 50
             final += (20 + 50) + (25 + 50)
-        if chemist_bottom.isChecked() and well_mark.isChecked():
+        if himic and well_mark.isChecked():
             poison += 25 + 50
             hp += 25 + 50
             final += (25 + 50) + (25 + 50)
-        if bio_bottom.isChecked() and well_mark.isChecked():
+        if biologi and well_mark.isChecked():
             hp += 25 + 50
             sheld += 25 + 50
             final += (25 + 50) + (25 + 50)
-        if history_bottom.isChecked() and well_mark.isChecked():
+        if istoria and well_mark.isChecked():
             world_edu += 25 + 50
             talking += 25 + 50
             final += (25 + 50) + (25 + 50)
-        if piple_bottom.isChecked() and well_mark.isChecked():
+        if obshestvo and well_mark.isChecked():
             hp += 20 + 50
             brain += 25 + 50
             world_edu += 25 + 50
             talking += 20 + 50
             final += (20 + 50) + (25 + 50) + (25 + 50) + (20 + 50)
-        if phisics_bottom.isChecked() and well_mark.isChecked():
+        if fisic and well_mark.isChecked():
             brain += 30 + 50
             final += 30 + 50
-        if informatik_bottom.isChecked() and well_mark.isChecked():
+        if python_cool and well_mark.isChecked():
             sheld += 40 + 50
             brain += 20 + 50
             final += (40 + 50) + (20 + 50)
-        if eng_bottom.isChecked() and well_mark.isChecked():
+        if fabric and well_mark.isChecked():
             talking += 55 + 50
             final += 55 + 50
-        if obg_bottom.isChecked() and well_mark.isChecked():
+        if obege and well_mark.isChecked():
             world_edu += 20 + 50
             sheld += 25 + 50
             hp += 25 + 50
             final += (20 + 50) + (25 + 50) + (25 + 50)
 
         # КЛАССНАЯ ПЯТЁРКА
-        if russian_bottom.isChecked() and best_mark.isChecked():
+        if russian and best_mark.isChecked():
             talking += 85 + 50
             world_edu += 75 + 50
             final += (85 + 50) + (75 + 50)
-        if literatur_bottom.isChecked() and best_mark.isChecked():
+        if litra and best_mark.isChecked():
             brain += 70 + 50
             talking += 50 + 50
             world_edu += 50 + 50
             final += (70 + 50) + (50 + 50) + (50 + 50)
-        if manth_bottom.isChecked() and best_mark.isChecked():
+        if matimatik and best_mark.isChecked():
             brain += 45 + 50
             final += 45 + 50
-        if geo_bottom.isChecked() and best_mark.isChecked():
+        if geografi and best_mark.isChecked():
             brain += 45 + 50
             world_edu += 50 + 50
             final += (45 + 50) + (50 + 50)
-        if chemist_bottom.isChecked() and best_mark.isChecked():
+        if himic and best_mark.isChecked():
             poison += 50 + 50
             hp += 50 + 50
             final += (50 + 50) + (50 + 50)
-        if bio_bottom.isChecked() and best_mark.isChecked():
+        if biologi and best_mark.isChecked():
             hp += 50 + 50
             sheld += 50 + 50
             final += (50 + 50) + (50 + 50)
-        if history_bottom.isChecked() and best_mark.isChecked():
+        if istoria and best_mark.isChecked():
             world_edu += 50 + 50
             talking += 50 + 50
             final += (50 + 50) + (50 + 50)
-        if piple_bottom.isChecked() and best_mark.isChecked():
+        if obshestvo and best_mark.isChecked():
             hp += 45 + 50
             brain += 50 + 50
             world_edu += 50 + 50
             talking += 45 + 50
             final += (45 + 50) + (50 + 50) + (50 + 50) + (45 + 50)
-        if phisics_bottom.isChecked() and best_mark.isChecked():
+        if fisic and best_mark.isChecked():
             brain += 55 + 50
             final += 55 + 50
-        if informatik_bottom.isChecked() and best_mark.isChecked():
+        if python_cool and best_mark.isChecked():
             sheld += 65 + 50
             brain += 45 + 50
             final += (65 + 50) + (45 + 50)
-        if eng_bottom.isChecked() and best_mark.isChecked():
+        if fabric and best_mark.isChecked():
             talking += 80 + 50
             final += 80 + 50
-        if obg_bottom.isChecked() and best_mark.isChecked():
+        if obege and best_mark.isChecked():
             world_edu += 45 + 50
             sheld += 50 + 50
             hp += 50 + 50
             final += (45 + 50) + (50 + 50) + (50 + 50)
 
         # КЛАССНАЯ ТРОЙКА
-        if russian_bottom.isChecked() and good_mark.isChecked():
+        if russian and good_mark.isChecked():
             talking += 55 + 50
             world_edu += 35 + 50
             final += (55 + 50) + (35 + 50)
-        if literatur_bottom.isChecked() and good_mark.isChecked():
+        if litra and good_mark.isChecked():
             brain += 30 + 50
             talking += 10 + 50
             world_edu += 10 + 50
             final += (30 + 50) + (10 + 50) + (10 + 50)
-        if manth_bottom.isChecked() and good_mark.isChecked():
+        if matimatik and good_mark.isChecked():
             brain += 10 + 50
             final += 10 + 50
-        if geo_bottom.isChecked() and good_mark.isChecked():
+        if geografi and good_mark.isChecked():
             brain += 10 + 50
             world_edu += 10 + 50
             final += (10 + 50) + (10 + 50)
-        if chemist_bottom.isChecked() and good_mark.isChecked():
+        if himic and good_mark.isChecked():
             poison += 10 + 50
             hp += 10 + 50
             final += (10 + 50) + (10 + 50)
-        if bio_bottom.isChecked() and good_mark.isChecked():
+        if biologi and good_mark.isChecked():
             hp += 10 + 50
             sheld += 10 + 50
             final += (10 + 50) + (10 + 50)
-        if history_bottom.isChecked() and good_mark.isChecked():
+        if istoria and good_mark.isChecked():
             world_edu += 10 + 50
             talking += 10 + 50
             final += (10 + 50) + (10 + 50)
-        if piple_bottom.isChecked() and good_mark.isChecked():
+        if obshestvo and good_mark.isChecked():
             hp += 10 + 50
             brain += 10 + 50
             world_edu += 10 + 50
             talking += 10 + 50
             final += (10 + 50) + (10 + 50) + (10 + 50) + (10 + 50)
-        if phisics_bottom.isChecked() and good_mark.isChecked():
+        if fisic and good_mark.isChecked():
             brain += 15 + 50
             final += 15 + 50
-        if informatik_bottom.isChecked() and good_mark.isChecked():
+        if python_cool and good_mark.isChecked():
             sheld += 25 + 50
             brain += 10 + 50
             final += (25 + 50) + (10 + 50)
-        if eng_bottom.isChecked() and good_mark.isChecked():
+        if fabric and good_mark.isChecked():
             talking += 40 + 50
             final += 40 + 50
-        if obg_bottom.isChecked() and good_mark.isChecked():
+        if obege and good_mark.isChecked():
             world_edu += 10 + 50
             sheld += 10 + 50
             hp += 10 + 50
             final += (10 + 50) + (10 + 50) + (10 + 50)
 
         # КЛАССНАЯ ПАРАША
-        if russian_bottom.isChecked() and bad_mark.isChecked():
+        if russian and bad_mark.isChecked():
             talking -= 30
             world_edu -= 15
             final -= 30 + 15
-        if literatur_bottom.isChecked() and bad_mark.isChecked():
+        if litra and bad_mark.isChecked():
             brain -= 15
             talking -= 10
             world_edu -= 10
             final -= 15 + 10 + 10
-        if manth_bottom.isChecked() and bad_mark.isChecked():
+        if matimatik and bad_mark.isChecked():
             brain -= 10
             final -= 10
-        if geo_bottom.isChecked() and bad_mark.isChecked():
+        if geografi and bad_mark.isChecked():
             brain -= 10
             world_edu -= 10
             final -= 10 + 10
-        if chemist_bottom.isChecked() and bad_mark.isChecked():
+        if himic and bad_mark.isChecked():
             poison -= 10
             hp -= 10
             final -= 10 + 10
-        if bio_bottom.isChecked() and bad_mark.isChecked():
+        if biologi and bad_mark.isChecked():
             hp -= 10
             sheld -= 10
             final -= 10 + 10
-        if history_bottom.isChecked() and bad_mark.isChecked():
+        if istoria and bad_mark.isChecked():
             world_edu -= 10
             talking -= 10
             final -= 10 + 10
-        if piple_bottom.isChecked() and bad_mark.isChecked():
+        if obshestvo and bad_mark.isChecked():
             hp -= 10
             brain -= 10
             world_edu -= 10
             talking -= 10
             final -= 10 + 10 + 10 + 10
-        if phisics_bottom.isChecked() and bad_mark.isChecked():
+        if fisic and bad_mark.isChecked():
             brain -= 15
             final -= 15
-        if informatik_bottom.isChecked() and bad_mark.isChecked():
+        if python_cool and bad_mark.isChecked():
             sheld -= 15
             brain -= 10
             final -= 15 + 10
-        if eng_bottom.isChecked() and bad_mark.isChecked():
+        if fabric and bad_mark.isChecked():
             talking -= 20
             final -= 20
-        if obg_bottom.isChecked() and bad_mark.isChecked():
+        if obege and bad_mark.isChecked():
             world_edu -= 10
             sheld -= 10
             hp -= 10
             final -= 10 + 10 + 10
         
     
-    if exam.isChecked():
-        if russian_bottom.isChecked() and well_mark.isChecked():
+    if ex:
+        if russian and well_mark.isChecked():
             talking += 70 + 130
             world_edu += 50 + 130
             final += (70 + 130) + (50 + 130)
-        if literatur_bottom.isChecked() and well_mark.isChecked():
+        if litra and well_mark.isChecked():
             brain += 45 + 130
             talking += 25 + 130
             world_edu += 25 + 130
             final += (45 + 130) + (25 + 130) + (25 + 130)
-        if manth_bottom.isChecked() and well_mark.isChecked():
+        if matimatik and well_mark.isChecked():
             brain += 20 + 130
             final += 20 + 130
-        if geo_bottom.isChecked() and well_mark.isChecked():
+        if geografi and well_mark.isChecked():
             brain += 20 + 130
             world_edu += 25 + 130
             final += (20 + 130) + (25 + 130)
-        if chemist_bottom.isChecked() and well_mark.isChecked():
+        if himic and well_mark.isChecked():
             poison += 25 + 130
             hp += 25 + 130
             final += (25 + 130) + (25 + 130)
-        if bio_bottom.isChecked() and well_mark.isChecked():
+        if biologi and well_mark.isChecked():
             hp += 25 + 130
             sheld += 25 + 130
             final += (25 + 130) + (25 + 130)
-        if history_bottom.isChecked() and well_mark.isChecked():
+        if istoria and well_mark.isChecked():
             world_edu += 25 + 130
             talking += 25 + 130
             final += (25 + 130) + (25 + 130)
-        if piple_bottom.isChecked() and well_mark.isChecked():
+        if obshestvo and well_mark.isChecked():
             hp += 20 + 130
             brain += 25 + 130
             world_edu += 25 + 130
             talking += 20 + 130
             final += (20 + 130) + (25 + 130) + (25 + 130) + (20 + 130)
-        if phisics_bottom.isChecked() and well_mark.isChecked():
+        if fisic and well_mark.isChecked():
             brain += 30 + 130
             final += 30 + 130
-        if informatik_bottom.isChecked() and well_mark.isChecked():
+        if python_cool and well_mark.isChecked():
             sheld += 40 + 130
             brain += 20 + 130
             final += (40 + 130) + (20 + 130)
-        if eng_bottom.isChecked() and well_mark.isChecked():
+        if fabric and well_mark.isChecked():
             talking += 55 + 130
             final += 55 + 130
-        if obg_bottom.isChecked() and well_mark.isChecked():
+        if obege and well_mark.isChecked():
             world_edu += 20 + 130
             sheld += 25 + 130
             hp += 25 + 130
             final += (20 + 130) + (25 + 130) + (25 + 130)
 
         # КЛАССНАЯ ПЯТЁРКА
-        if russian_bottom.isChecked() and best_mark.isChecked():
+        if russian and best_mark.isChecked():
             talking += 85 + 130
             world_edu += 75 + 130
             final += (85 + 130) + (75 + 130)
-        if literatur_bottom.isChecked() and best_mark.isChecked():
+        if litra and best_mark.isChecked():
             brain += 70 + 130
             talking += 50 + 130
             world_edu += 50 + 130
             final += (70 + 130) + (50 + 130) + (50 + 130)
-        if manth_bottom.isChecked() and best_mark.isChecked():
+        if matimatik and best_mark.isChecked():
             brain += 45 + 130
             final += 45 + 130
-        if geo_bottom.isChecked() and best_mark.isChecked():
+        if geografi and best_mark.isChecked():
             brain += 45 + 130
             world_edu += 50 + 130
             final += (45 + 130) + (50 + 130)
-        if chemist_bottom.isChecked() and best_mark.isChecked():
+        if himic and best_mark.isChecked():
             poison += 50 + 130
             hp += 50 + 130
             final += (50 + 130) + (50 + 130)
-        if bio_bottom.isChecked() and best_mark.isChecked():
+        if biologi and best_mark.isChecked():
             hp += 50 + 130
             sheld += 50 + 130
             final += (50 + 130) + (50 + 130)
-        if history_bottom.isChecked() and best_mark.isChecked():
+        if istoria and best_mark.isChecked():
             world_edu += 50 + 130
             talking += 50 + 130
             final += (50 + 130) + (50 + 130)
-        if piple_bottom.isChecked() and best_mark.isChecked():
+        if obshestvo and best_mark.isChecked():
             hp += 45 + 130
             brain += 50 + 130
             world_edu += 50 + 130
             talking += 45 + 130
             final += (45 + 130) + (50 + 130) + (50 + 130) + (45 + 130)
-        if phisics_bottom.isChecked() and best_mark.isChecked():
+        if fisic and best_mark.isChecked():
             brain += 55 + 130
             final += 55 + 130
-        if informatik_bottom.isChecked() and best_mark.isChecked():
+        if python_cool and best_mark.isChecked():
             sheld += 65 + 130
             brain += 45 + 130
             final += (65 + 130) + (45 + 130)
-        if eng_bottom.isChecked() and best_mark.isChecked():
+        if fabric and best_mark.isChecked():
             talking += 80 + 130
             final += 80 + 130
-        if obg_bottom.isChecked() and best_mark.isChecked():
+        if obege and best_mark.isChecked():
             world_edu += 45 + 130
             sheld += 50 + 130
             hp += 50 + 130
             final += (45 + 130) + (50 + 130) + (50 + 130)
 
         # КЛАССНАЯ ТРОЙКА
-        if russian_bottom.isChecked() and good_mark.isChecked():
+        if russian and good_mark.isChecked():
             talking += 55 + 130
             world_edu += 35 + 130
             final += (55 + 130) + (35 + 130)
-        if literatur_bottom.isChecked() and good_mark.isChecked():
+        if litra and good_mark.isChecked():
             brain += 30 + 130
             talking += 10 + 130
             world_edu += 10 + 130
             final += (30 + 130) + (10 + 130) + (10 + 130)
-        if manth_bottom.isChecked() and good_mark.isChecked():
+        if matimatik and good_mark.isChecked():
             brain += 10 + 130
             final += 10 + 130
-        if geo_bottom.isChecked() and good_mark.isChecked():
+        if geografi and good_mark.isChecked():
             brain += 10 + 130
             world_edu += 10 + 130
             final += (10 + 130) + (10 + 130)
-        if chemist_bottom.isChecked() and good_mark.isChecked():
+        if himic and good_mark.isChecked():
             poison += 10 + 130
             hp += 10 + 130
             final += (10 + 130) + (10 + 130)
-        if bio_bottom.isChecked() and good_mark.isChecked():
+        if biologi and good_mark.isChecked():
             hp += 10 + 130
             sheld += 10 + 130
             final += (10 + 130) + (10 + 130)
-        if history_bottom.isChecked() and good_mark.isChecked():
+        if istoria and good_mark.isChecked():
             world_edu += 10 + 130
             talking += 10 + 130
             final += (10 + 130) + (10 + 130)
-        if piple_bottom.isChecked() and good_mark.isChecked():
+        if obshestvo and good_mark.isChecked():
             hp += 10 + 130
             brain += 10 + 130
             world_edu += 10 + 130
             talking += 10 + 130
             final += (10 + 130) + (10 + 130) + (10 + 130) + (10 + 130)
-        if phisics_bottom.isChecked() and good_mark.isChecked():
+        if fisic and good_mark.isChecked():
             brain += 15 + 130
             final += 15 + 130
-        if informatik_bottom.isChecked() and good_mark.isChecked():
+        if python_cool and good_mark.isChecked():
             sheld += 25 + 130
             brain += 10 + 130
             final += (25 + 130) + (10 + 130)
-        if eng_bottom.isChecked() and good_mark.isChecked():
+        if fabric and good_mark.isChecked():
             talking += 40 + 130
             final += 40 + 130
-        if obg_bottom.isChecked() and good_mark.isChecked():
+        if obege and good_mark.isChecked():
             world_edu += 10 + 130
             sheld += 10 + 130
             hp += 10 + 130
             final += (10 + 130) + (10 + 130) + (10 + 130)
 
         # КЛАССНАЯ ПАРАША
-        if russian_bottom.isChecked() and bad_mark.isChecked():
+        if russian and bad_mark.isChecked():
             talking -= 30
             world_edu -= 15
             final -= 30 + 15
-        if literatur_bottom.isChecked() and bad_mark.isChecked():
+        if litra and bad_mark.isChecked():
             brain -= 15
             talking -= 10
             world_edu -= 10
             final -= 15 + 10 + 10
-        if manth_bottom.isChecked() and bad_mark.isChecked():
+        if matimatik and bad_mark.isChecked():
             brain -= 10
             final -= 10
-        if geo_bottom.isChecked() and bad_mark.isChecked():
+        if geografi and bad_mark.isChecked():
             brain -= 10
             world_edu -= 10
             final -= 10 + 10
-        if chemist_bottom.isChecked() and bad_mark.isChecked():
+        if himic and bad_mark.isChecked():
             poison -= 10
             hp -= 10
             final -= 10 + 10
-        if bio_bottom.isChecked() and bad_mark.isChecked():
+        if biologi and bad_mark.isChecked():
             hp -= 10
             sheld -= 10
             final -= 10 + 10
-        if history_bottom.isChecked() and bad_mark.isChecked():
+        if istoria and bad_mark.isChecked():
             world_edu -= 10
             talking -= 10
             final -= 10 + 10
-        if piple_bottom.isChecked() and bad_mark.isChecked():
+        if obshestvo and bad_mark.isChecked():
             hp -= 10
             brain -= 10
             world_edu -= 10
             talking -= 10
             final -= 10 + 10 + 10 + 10
-        if phisics_bottom.isChecked() and bad_mark.isChecked():
+        if fisic and bad_mark.isChecked():
             brain -= 15
             final -= 15
-        if informatik_bottom.isChecked() and bad_mark.isChecked():
+        if python_cool and bad_mark.isChecked():
             sheld -= 15
             brain -= 10
             final -= 15 + 10
-        if eng_bottom.isChecked() and bad_mark.isChecked():
+        if fabric and bad_mark.isChecked():
             talking -= 20
             final -= 20
-        if obg_bottom.isChecked() and bad_mark.isChecked():
+        if obege and bad_mark.isChecked():
             world_edu -= 10
             sheld -= 10
             hp -= 10
             final -= 10 + 10 + 10
     
-    if best_mark.isChecked:
+    if best_mark.isChecked():
         loadImage_hape()
-    if well_mark.isChecked:
+    if well_mark.isChecked():
         loadImage_well()
-    if good_mark.isChecked:
+    if good_mark.isChecked():
         loadImage_gret()
-    if bad_mark.isChecked:
+    if bad_mark.isChecked():
         loadImage_bad()
     infourok.setText(f'Ваша статистика:\nУровень: {lvl}\n\nЗдоровье: {hp}\nЗащита: {sheld}\nРазум: {brain}\nКрасноречие: {talking}\nОбществознание: {world_edu}\nЗельеварение: {poison}\n\n\nВсего очков: {final}')
 
@@ -1606,26 +1666,28 @@ next = QPushButton('Закончить')
 
 type_work = QLabel('Какая именно работа?')
 
-klass_work = QPushButton('Классная работа')
-sam_work = QPushButton('Самостоятельная работа')
-check_work = QPushButton('Проверочная работа')
-ctrl_work = QPushButton('Контрольная работа')
-exam = QPushButton('Экзамен')
+klass_work = QRadioButton('Классная работа')
+sam_work = QRadioButton('Самостоятельная работа')
+check_work = QRadioButton('Проверочная работа')
+ctrl_work = QRadioButton('Контрольная работа')
+exam = QRadioButton('Экзамен')
+lesson = QPushButton('Далее')
 
 subject = QLabel('По какому предмету?')
 
-russian_bottom = QPushButton('Русский')
-literatur_bottom = QPushButton('Литра')
-manth_bottom = QPushButton('Математика (алгебра/геометрия)')
-chemist_bottom = QPushButton('Химия')
-bio_bottom = QPushButton('Биология')
-history_bottom = QPushButton('История')
-piple_bottom = QPushButton('Обществознание')
-geo_bottom = QPushButton('География')
-phisics_bottom = QPushButton('Физика')
-informatik_bottom = QPushButton('Информатика')
-eng_bottom = QPushButton('Английский')
-obg_bottom = QPushButton('ОБЖ')
+russian_bottom = QRadioButton('Русский')
+literatur_bottom = QRadioButton('Литра')
+manth_bottom = QRadioButton('Математика (алгебра/геометрия)')
+chemist_bottom = QRadioButton('Химия')
+bio_bottom = QRadioButton('Биология')
+history_bottom = QRadioButton('История')
+piple_bottom = QRadioButton('Обществознание')
+geo_bottom = QRadioButton('География')
+phisics_bottom = QRadioButton('Физика')
+informatik_bottom = QRadioButton('Информатика')
+eng_bottom = QRadioButton('Английский')
+obg_bottom = QRadioButton('ОБЖ')
+btn_mark = QPushButton('Далее')
 
 what_mark = QLabel('На какую оценку?')
 
@@ -1686,24 +1748,10 @@ kys.clicked.connect(kys_back)
 info.clicked.connect(deanon)
 wasd.clicked.connect(popa)
 
-klass_work.clicked.connect(choose)
-sam_work.clicked.connect(choose)
-check_work.clicked.connect(choose)
-ctrl_work.clicked.connect(choose)
-exam.clicked.connect(choose)
 
-russian_bottom.clicked.connect(marks)
-literatur_bottom.clicked.connect(marks)
-manth_bottom.clicked.connect(marks)
-geo_bottom.clicked.connect(marks)
-chemist_bottom.clicked.connect(marks)
-bio_bottom.clicked.connect(marks)
-history_bottom.clicked.connect(marks)
-piple_bottom.clicked.connect(marks)
-phisics_bottom.clicked.connect(marks)
-informatik_bottom.clicked.connect(marks)
-eng_bottom.clicked.connect(marks)
-obg_bottom.clicked.connect(marks)
+lesson.clicked.connect(choose)
+
+btn_mark.clicked.connect(marks)
 
 
 razvilka.setAlignment(Qt.AlignCenter)
